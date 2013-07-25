@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+
+<HEAD>
+<TITLE>Elections Graph using Java</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+
+<H1 ALIGN=CENTER>Election Results Seats and Bounce</H1>
+
+<BLOCKQUOTE><CENTER><STRONG>
+Yes, this page uses Java<BR>and thus requires a Java-enabled browser.
+</STRONG></CENTER></BLOCKQUOTE>
+
+<HR>
+<APPLET ARCHIVE="./build/jar/ElectionApplet.jar" CODE="ElectionApplet.class" WIDTH=715 HEIGHT=460>
+<PARAM NAME="stringX"		VALUE="Number of rows:">
+<PARAM NAME="stringY"		VALUE="Number of columns:">
+<PARAM NAME="select"		VALUE="Select Election">
+<PARAM NAME="stringBox"		VALUE="Log interpolation">
+<PARAM NAME="seatbonus"	VALUE="Seat Bounce">
+<PARAM NAME="dailseats"	VALUE="Dail Seats">
+<PARAM NAME="stringResults"	VALUE="Contour values:">
+<PARAM NAME="stringErrParse"	VALUE="Error parsing z values: ">
+<PARAM NAME="stringErrLog1"	VALUE="Logarithmic interpolation">
+<PARAM NAME="stringErrLog2"	VALUE="not possible because of">
+<PARAM NAME="stringErrLog3"	VALUE="nonpositive values.">
+<PARAM NAME="stringErrComp"	VALUE="Component">
+<PARAM NAME="stringErrEqual"	VALUE="All z values are equal!">
+<PARAM NAME="stringErrExpect"	VALUE="Expected: ">
+<PARAM NAME="stringErrEOF"	VALUE="End of data not found.">
+<PARAM NAME="stringErrBounds"	VALUE="Dimension out of bounds.">
+</APPLET>
+
+<HR>
+
+<H3>Instructions</H3>
+<UL>
+<LI>Enter the matrix of z values, in the following format (similar to Mathematica format):
+	<UL>
+	<LI>The values are floating point numbers separated by commas.
+	<LI>Each row of values is enclosed in brace brackets.<BR>e.g. {0.4, 1.2, 1.03}
+	<LI>The rows themselves are separated by commas and enclosed in brace brackets.
+	<LI>The number of rows must be at least 2 and at most 100.
+	<LI>The rows need not be of the same length; the longest row must have at least 2 and at most 100 values.
+	</UL>
+<LI>Click in the button "Draw" to trace the contour plot based on the data you have provided. The program will:
+	<OL>
+	<LI>parse the matrix of z values, filling short rows with zeroes if necessary to make the matrix rectangular;
+	<LI>calculate ten values, one for each contour to be drawn, by linearly interpolating between the maximum and minimum z values in the matrix;<BR>
+(One may, however, select logarithmic interpolation using the check box just to the left of the "Draw" button.
+Log interpolation is better for data containing sharp peaks, but is possible only if all values in the matrix are positive.)
+	<LI>display the results of steps 1 and 2 (including the 10 contour values, numbered [0] through [9]) in the area in the lower left of the applet's panel; and
+	<LI>draw the contour plot in the right-hand portion of the applet's panel.
+	</OL>
+</UL>
+
+<HR>
+
+<H3>About this applet...</H3>
+
+<P>
+This applet is a <EM><STRONG>work in progress</STRONG></EM> and may contain bugs. It was developed by
+<A HREF="http://www.crm.umontreal.ca/~rand/David_Rand_Eng.html">David Rand</A> on a Macintosh using Metrowerks CodeWarrior Java.
+It has undergone preliminary testing on Macintosh and UNIX platforms. If you experience problems with this applet, please inform
+the author by e-mail at <A HREF="mailto:rand@CRM.UMontreal.CA">rand@CRM.UMontreal.CA</A>; be sure to specify your platform and browser.
+Thanks in advance.
+</P>
+
+<P>
+The plotting algorithm was taken from a Fortran program by Snyder [1].
+The program was first translated into C, then reworked, and finally
+translated into Java. Flanagan [2] was indispensable for the Java implementation.
+</P>
+
+<HR>
+
+<H3>References</H3>
+<OL>
+<LI>W. V. Snyder, "<STRONG>Algorithm 531, Contour plotting [J6]</STRONG>",
+<EM>ACM Trans. Math. Softw.&nbsp;4</EM>, 3 (Sept. 1978), 290-294.<P>
+<LI>D. Flanagan, <STRONG><EM>Java in a Nutshell</EM></STRONG>, O'Reilly &amp; Associates (1996).
+</OL>
+
+<HR>
+</BODY>
+</HTML>
+
